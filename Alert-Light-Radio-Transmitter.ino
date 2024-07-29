@@ -80,12 +80,13 @@ int mapPotentiometers(int val, int lower, int middle, int upper, bool reverse)
 {
   val = constrain(val, lower, upper);
   if ( val < middle )
-    val = map(val, lower, middle, 0, 128);
-    //val = 255;
+    //val = map(val, lower, middle, 0, 128);
+    val = 0;
   else
-    val = map(val, middle, upper, 128, 255);
-    //val = 255;
-  return ( reverse ? 255 - val : val );
+    //val = map(val, middle, upper, 128, 255);
+    val = 1;
+  //return ( reverse ? 255 - val : val );
+  return val;
 }
 
 void loop()
